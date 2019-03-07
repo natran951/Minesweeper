@@ -4,6 +4,7 @@ private MSButton[][] buttons; //2d array of minesweeper buttons
 private ArrayList<MSButton> bombs = new ArrayList<MSButton>(); //ArrayList of just the minesweeper buttons that are mined
 int NUM_ROWS = 20;
 int NUM_COLS = 20;
+int num_bombs = 30;
 void setup () {
     size(400, 400);
     textAlign(CENTER,CENTER);
@@ -18,7 +19,7 @@ void setup () {
             buttons[i][j] = new MSButton(i,j);
         }
     }
-    for(int b = 0; b < 30; b++) {
+    for(int b = 0; b < num_bombs; b++) {
         setBombs();
     }
 }
@@ -28,7 +29,6 @@ public void setBombs() {
     if(!bombs.contains(buttons[r][c])) {
         bombs.add(buttons[r][c]);
     }
-    System.out.println(r+1); // row of bomb
 }
 public boolean lost = false;
 public void draw () {
